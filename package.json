@@ -1,0 +1,52 @@
+{
+	"name": "@cmmv/express",
+	"version": "0.6.6",
+	"description": "Minimalistic Node.js Server Framework",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [],
+	"author": "Andre Ferreira",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/andrehrferreira/cmmv-express.git"
+	},
+	"bugs": {
+		"url": "https://github.com/andrehrferreira/cmmv-express/issues"
+	},
+	"homepage": "https://cmmv.io",
+	"engines": {
+		"node": ">= 18.2.0"
+	},
+	"lint-staged": {
+		"**/*.ts": [
+			"prettier --ignore-path ./.prettierignore --write"
+		],
+		"packages/**/*.json": [
+			"prettier --ignore-path ./.prettierignore --write"
+		]
+	},
+	"devDependencies": {
+		"@types/node": "^22.10.1",
+		"@typescript-eslint/eslint-plugin": "^8.17.0",
+		"@typescript-eslint/parser": "^8.17.0",
+		"husky": "^9.1.7",
+		"lint-staged": "^15.2.10",
+		"prettier": "^3.4.2",
+		"typescript": "^5.7.2",
+		"vitest": "^2.1.8"
+	},
+	"dependencies": {
+		"@cmmv/core": "^0.6.6",
+		"@cmmv/http": "^0.6.6",
+		"@cmmv/view": "^0.6.6",
+		"body-parser": "^1.20.3",
+		"cors": "^2.8.5",
+		"express": "^4.21.1",
+		"express-session": "^1.18.1",
+		"helmet": "^8.0.0",
+		"uuid": "^11.0.3"
+	}
+}
