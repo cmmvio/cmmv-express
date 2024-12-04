@@ -1,6 +1,6 @@
 {
     "name": "@cmmv/express",
-    "version": "0.6.10",
+    "version": "0.6.11",
     "description": "Minimalistic Node.js Server Framework",
     "main": "./dist/cjs/index.js",
     "module": "./dist/esm/index.js",
@@ -50,6 +50,7 @@
         "@typescript-eslint/eslint-plugin": "^8.17.0",
         "@typescript-eslint/parser": "^8.17.0",
         "chalk": "^5.3.0",
+        "commitlint": "19.6.0",
         "conventional-changelog": "^6.0.0",
         "conventional-changelog-cli": "^5.0.0",
         "enquirer": "^2.4.1",
