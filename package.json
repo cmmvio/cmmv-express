@@ -1,71 +1,74 @@
 {
-	"name": "@cmmv/express",
-	"version": "0.6.6",
-	"description": "Minimalistic Node.js Server Framework",
-	"main": "./dist/cjs/index.js",
-	"module": "./dist/esm/index.js",
-	"types": "./dist/types/index.d.ts",
-	"exports": {
-		".": {
-			"import": "./dist/esm/index.js",
-			"require": "./dist/cjs/index.js"
-		}
-	},
-	"scripts": {
-		"prebuild": "rimraf dist",
-		"build:cjs": "tsc --project tsconfig.cjs.json",
-		"build:esm": "tsc --project tsconfig.esm.json",
-		"build": "pnpm run build:cjs && pnpm run build:esm",
-		"test": "vitest",
-		"prepare": "husky",
-		"release": "pnpm run build && node scripts/release.js"
-	},
-	"keywords": [],
-	"author": "Andre Ferreira",
-	"license": "MIT",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/andrehrferreira/cmmv-express.git"
-	},
-	"bugs": {
-		"url": "https://github.com/andrehrferreira/cmmv-express/issues"
-	},
-	"homepage": "https://cmmv.io",
-	"engines": {
-		"node": ">= 18.2.0"
-	},
-	"lint-staged": {
-		"**/*.ts": [
-			"prettier --ignore-path ./.prettierignore --write"
-		],
-		"packages/**/*.json": [
-			"prettier --ignore-path ./.prettierignore --write"
-		]
-	},
-	"devDependencies": {
-		"@types/node": "^22.10.1",
-		"@typescript-eslint/eslint-plugin": "^8.17.0",
-		"@typescript-eslint/parser": "^8.17.0",
-		"chalk": "^5.3.0",
-		"enquirer": "^2.4.1",
-		"execa": "^9.5.1",
-		"husky": "^9.1.7",
-		"lint-staged": "^15.2.10",
-		"prettier": "^3.4.2",
-		"rimraf": "^6.0.1",
-		"semver": "^7.6.3",
-		"typescript": "^5.7.2",
-		"vitest": "^2.1.8"
-	},
-	"dependencies": {
-		"@cmmv/core": "^0.6.6",
-		"@cmmv/http": "^0.6.6",
-		"@cmmv/view": "^0.6.6",
-		"body-parser": "^1.20.3",
-		"cors": "^2.8.5",
-		"express": "^4.21.1",
-		"express-session": "^1.18.1",
-		"helmet": "^8.0.0",
-		"uuid": "^11.0.3"
-	}
+    "name": "@cmmv/express",
+    "version": "0.6.7",
+    "description": "Minimalistic Node.js Server Framework",
+    "main": "./dist/cjs/index.js",
+    "module": "./dist/esm/index.js",
+    "types": "./dist/types/index.d.ts",
+    "exports": {
+        ".": {
+            "import": "./dist/esm/index.js",
+            "require": "./dist/cjs/index.js"
+        }
+    },
+    "scripts": {
+        "prebuild": "rimraf dist",
+        "build:cjs": "tsc --project tsconfig.cjs.json",
+        "build:esm": "tsc --project tsconfig.esm.json",
+        "build": "pnpm run build:cjs && pnpm run build:esm",
+        "test": "vitest",
+        "prepare": "husky",
+        "release": "pnpm run build && node scripts/release.js",
+        "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
+    },
+    "keywords": [],
+    "author": "Andre Ferreira",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/andrehrferreira/cmmv-express.git"
+    },
+    "bugs": {
+        "url": "https://github.com/andrehrferreira/cmmv-express/issues"
+    },
+    "homepage": "https://cmmv.io",
+    "engines": {
+        "node": ">= 18.2.0"
+    },
+    "lint-staged": {
+        "**/*.ts": [
+            "prettier --ignore-path ./.prettierignore --write"
+        ],
+        "packages/**/*.json": [
+            "prettier --ignore-path ./.prettierignore --write"
+        ]
+    },
+    "devDependencies": {
+        "@types/node": "^22.10.1",
+        "@typescript-eslint/eslint-plugin": "^8.17.0",
+        "@typescript-eslint/parser": "^8.17.0",
+        "chalk": "^5.3.0",
+        "conventional-changelog": "^6.0.0",
+        "conventional-changelog-cli": "^5.0.0",
+        "enquirer": "^2.4.1",
+        "execa": "^9.5.1",
+        "husky": "^9.1.7",
+        "lint-staged": "^15.2.10",
+        "prettier": "^3.4.2",
+        "rimraf": "^6.0.1",
+        "semver": "^7.6.3",
+        "typescript": "^5.7.2",
+        "vitest": "^2.1.8"
+    },
+    "dependencies": {
+        "@cmmv/core": "^0.6.6",
+        "@cmmv/http": "^0.6.6",
+        "@cmmv/view": "^0.6.6",
+        "body-parser": "^1.20.3",
+        "cors": "^2.8.5",
+        "express": "^4.21.1",
+        "express-session": "^1.18.1",
+        "helmet": "^8.0.0",
+        "uuid": "^11.0.3"
+    }
 }
