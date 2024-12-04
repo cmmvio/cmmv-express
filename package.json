@@ -1,6 +1,6 @@
 {
     "name": "@cmmv/express",
-    "version": "0.6.8",
+    "version": "0.6.10",
     "description": "Minimalistic Node.js Server Framework",
     "main": "./dist/cjs/index.js",
     "module": "./dist/esm/index.js",
@@ -44,6 +44,8 @@
         ]
     },
     "devDependencies": {
+        "@commitlint/config-angular": "^19.6.0",
+        "@commitlint/config-conventional": "^19.6.0",
         "@types/node": "^22.10.1",
         "@typescript-eslint/eslint-plugin": "^8.17.0",
         "@typescript-eslint/parser": "^8.17.0",
