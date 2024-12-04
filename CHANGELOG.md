@@ -1,3 +1,13 @@
+## [0.6.14](https://github.com/andrehrferreira/cmmv-express/compare/v0.6.13...v0.6.14) (2024-12-04)
+
+
+### Bug Fixes
+
+* description ([b697461](https://github.com/andrehrferreira/cmmv-express/commit/b6974611b6f88aebc5573e95116623faef373139))
+* keywords ([da2c92e](https://github.com/andrehrferreira/cmmv-express/commit/da2c92e96b8ae9ff71b4daee566c1c43fdeaa241))
+
+
+
 ## [0.6.13](https://github.com/andrehrferreira/cmmv-express/compare/v0.6.8...v0.6.13) (2024-12-04)
 
 

@@ -1,6 +1,6 @@
 {
     "name": "@cmmv/express",
-    "version": "0.6.13",
+    "version": "0.6.14",
     "description": "CMMV (@express)",
     "main": "./dist/cjs/index.js",
     "module": "./dist/esm/index.js",
@@ -21,7 +21,12 @@
         "release": "pnpm run build && node scripts/release.js",
         "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
     },
-    "keywords": ["cmmv", "express", "adapter", "http"],
+    "keywords": [
+        "cmmv",
+        "express",
+        "adapter",
+        "http"
+    ],
     "author": "Andre Ferreira",
     "license": "MIT",
     "repository": {
