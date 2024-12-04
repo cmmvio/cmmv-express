@@ -3,9 +3,8 @@
 </p>
 <p align="center">Contract-Model-Model-View (CMMV) <br/> Building scalable and modular applications using contracts.</p>
 <p align="center">
-    <a href="https://www.npmjs.com/package/@cmmv/core"><img src="https://img.shields.io/npm/v/@cmmv/core.svg" alt="NPM Version" /></a>
-    <a href="https://github.com/andrehrferreira/cmmv/blob/main/LICENSE"><img src="https://img.shields.io/npm/l/@cmmv/core.svg" alt="Package License" /></a>
-    <a href="https://dl.circleci.com/status-badge/redirect/circleci/QyJWAYrZ9JTfN1eubSDo5u/7gdwcdqbMYfbYYX4hhoNhc/tree/main" target="_blank"><img src="https://dl.circleci.com/status-badge/img/circleci/QyJWAYrZ9JTfN1eubSDo5u/7gdwcdqbMYfbYYX4hhoNhc/tree/main.svg" alt="CircleCI" /></a>
+    <a href="https://www.npmjs.com/package/@cmmv/express"><img src="https://img.shields.io/npm/v/@cmmv/express.svg" alt="NPM Version" /></a>
+    <a href="https://github.com/andrehrferreira/cmmv-express/blob/main/LICENSE"><img src="https://img.shields.io/npm/l/@cmmv/express.svg" alt="Package License" /></a>
 </p>
 
 <p align="center">
@@ -17,63 +16,30 @@
 
 CMMV (Contract-Model-Model-View) is a minimalistic and modular framework for building scalable applications in TypeScript. Inspired by modern design patterns, CMMV uses contracts to define the entire application, from ORM entities to REST controllers and WebSocket endpoints, allowing for a highly structured and maintainable codebase.
 
-## Philosophy
-
-CMMV aims to simplify the development process by leveraging TypeScript's powerful type system and decorators. It eliminates the need for heavy frontend frameworks by focusing on direct control over data binding and interactions, while maintaining flexibility through modular design.
-
-## Features
-
-- **Contract-Driven Development:** Use TypeScript contracts to define models, controllers, and more.
-- **Modular Architecture:** Compose your application using modules, making it easy to manage and scale.
-- **RPC & REST Support:** Integrated support for both binary RPC via WebSocket and traditional REST APIs.
-- **Express Integration:** Seamless integration with Express for a familiar and robust HTTP server environment.
-- **Extensible:** Highly customizable and easy to extend with your own modules and components.
-
-## Setup with CLI
-
-CMMV now provides a CLI (Command Line Interface) to streamline the installation process and quickly set up your project with the desired configurations.
-
-To initialize a new project, you can use the following command:
-
-```bash
-$ pnpm dlx @cmmv/cli@latest init <project-name>
-```
-
-This command will walk you through a guided setup process, asking about your preferred configurations, such as enabling Vite, RPC, caching, repository type, and view setup (e.g., Vue 3 or Reactivity). It will automatically create the necessary files and folders, set up dependencies, and configure the project.
-
 ## Legacy Setup (Manual)
 
 If you prefer to set up the project manually, you can still install the necessary modules individually:
 
 ```bash
-$ pnpm add @cmmv/core @cmmv/http @cmmv/view rxjs reflect-metadata class-validator class-transformer fast-json-stringify
+$ pnpm add @cmmv/express express body-parser cors express-session helmet uuid
 ```
 
 ## Quick Start
 
-Below is a simple example of how to create a new CMMV application:
+The `@cmmv/express` module provides an alternative HTTP adapter based on [Express](https://expressjs.com/), allowing you to use Express middleware and features seamlessly with your CMMV application.
 
 ```typescript
 import { Application } from "@cmmv/core";
-import { DefaultAdapter, DefaultHTTPModule } from "@cmmv/http";
-import { ProtobufModule } from "@cmmv/protobuf";
-import { WSModule, WSAdapter } from "@cmmv/ws";
+import { ExpressAdapter, ExpressModule } from "@cmmv/express";
 import { ViewModule } from "@cmmv/view";
-import { RepositoryModule, Repository } from "@cmmv/repository";
-import { ApplicationModule } from "./app.module";
 
 Application.create({
-    httpAdapter: DefaultAdapter,    
+    httpAdapter: ExpressAdapter, // Add the ExpressAdapter here
     wsAdapter: WSAdapter,
     modules: [
-        DefaultHTTPModule,
-        ProtobufModule,
-        WSModule,
-        ViewModule,
-        RepositoryModule,
-        ApplicationModule
+        ExpressModule, // Add the ExpressModule here
     ],
-    services: [Repository],
+    services: [...],
     contracts: [...]
 });
 ```

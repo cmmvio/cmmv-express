@@ -2,9 +2,23 @@
 	"name": "@cmmv/express",
 	"version": "0.6.6",
 	"description": "Minimalistic Node.js Server Framework",
-	"main": "index.js",
+	"main": "./dist/cjs/index.js",
+    "module": "./dist/esm/index.js",
+    "types": "./dist/types/index.d.ts",
+	"exports": {
+        ".": {
+            "import": "./dist/esm/index.js",
+            "require": "./dist/cjs/index.js"
+        }
+    },
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"prebuild": "rimraf dist",
+		"build:cjs": "tsc --project tsconfig.cjs.json",
+        "build:esm": "tsc --project tsconfig.esm.json",
+        "build": "pnpm run build:cjs && pnpm run build:esm",
+		"test": "vitest",
+		"prepare": "husky",
+		"release": "pnpm run build && node scripts/release.js"
 	},
 	"keywords": [],
 	"author": "Andre Ferreira",
@@ -35,6 +49,7 @@
 		"husky": "^9.1.7",
 		"lint-staged": "^15.2.10",
 		"prettier": "^3.4.2",
+		"rimraf": "^6.0.1",
 		"typescript": "^5.7.2",
 		"vitest": "^2.1.8"
 	},
