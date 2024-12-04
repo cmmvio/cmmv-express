@@ -1,6 +1,6 @@
 {
     "name": "@cmmv/express",
-    "version": "0.6.11",
+    "version": "0.6.12",
     "description": "Minimalistic Node.js Server Framework",
     "main": "./dist/cjs/index.js",
     "module": "./dist/esm/index.js",
