@@ -18,7 +18,7 @@
         "build": "pnpm run build:cjs && pnpm run build:esm",
         "test": "vitest",
         "prepare": "husky",
-        "release": "pnpm run build && node scripts/release.js",
+        "release": "pnpm run build && node release.js",
         "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
     },
     "keywords": [

@@ -1,9 +1,9 @@
-import * as fs from 'fs';
-import * as path from 'path';
-import * as http from 'http';
-import * as https from 'https';
-import * as crypto from 'crypto';
-import { Duplex } from 'stream';
+import * as fs from 'node:fs';
+import * as path from 'node:path';
+import * as http from 'node:http';
+import * as https from 'node:https';
+import * as crypto from 'node:crypto';
+import { Duplex } from 'node:stream';
 import { v4 as uuidv4 } from 'uuid';
 
 import * as express from 'express';
@@ -51,9 +51,9 @@ export class ExpressAdapter extends AbstractHttpAdapter<
         if (!Config.get<boolean>('server.poweredBy', false))
             this.instance.disable('x-powered-by');
 
-        if (Config.get<boolean>('server.compress.enabled', true)) 
+        if (Config.get<boolean>('server.compress.enabled', true))
             this.instance.use(compression({ level: 6 }));
-        
+
         this.instance.use(
             express.static(publicDir, {
                 setHeaders: (res, path) => {

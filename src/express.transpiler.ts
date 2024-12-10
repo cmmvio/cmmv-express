@@ -1,10 +1,7 @@
-import * as fs from 'fs';
-import * as path from 'path';
+import * as fs from 'node:fs';
+import * as path from 'node:path';
 
-import { 
-    Application, Config, 
-    ITranspile, Logger, Scope 
-} from '@cmmv/core';
+import { Application, Config, ITranspile, Logger, Scope } from '@cmmv/core';
 
 export class ExpressTranspiler implements ITranspile {
     private logger: Logger = new Logger('ExpressTranspiler');
