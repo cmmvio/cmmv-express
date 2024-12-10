@@ -1,3 +1,12 @@
+## [0.6.15](https://github.com/andrehrferreira/cmmv-express/compare/v0.6.14...v0.6.15) (2024-12-10)
+
+
+### Bug Fixes
+
+* package, readme ([3d644cb](https://github.com/andrehrferreira/cmmv-express/commit/3d644cbf91ff00e7b78ef0e126c351feff2e49fd))
+
+
+
 ## [0.6.14](https://github.com/andrehrferreira/cmmv-express/compare/v0.6.13...v0.6.14) (2024-12-04)
 
 
