@@ -1,3 +1,7 @@
+## [0.6.16](https://github.com/andrehrferreira/cmmv-express/compare/v0.6.15...v0.6.16) (2024-12-10)
+
+
+
 ## [0.6.15](https://github.com/andrehrferreira/cmmv-express/compare/v0.6.14...v0.6.15) (2024-12-10)
 
 
