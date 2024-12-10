@@ -1,7 +1,7 @@
 {
     "name": "@cmmv/express",
     "version": "0.6.14",
-    "description": "CMMV (@express)",
+    "description": "HTTP adapter module for using Express as an HTTP server",
     "main": "./dist/cjs/index.js",
     "module": "./dist/esm/index.js",
     "types": "./dist/types/index.d.ts",
@@ -42,9 +42,6 @@
     },
     "lint-staged": {
         "**/*.ts": [
-            "prettier --ignore-path ./.prettierignore --write"
-        ],
-        "packages/**/*.json": [
             "prettier --ignore-path ./.prettierignore --write"
         ]
     },
