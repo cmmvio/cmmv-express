@@ -1,3 +1,12 @@
+## [0.6.17](https://github.com/andrehrferreira/cmmv-express/compare/v0.6.16...v0.6.17) (2024-12-11)
+
+
+### Bug Fixes
+
+* injectable middlewares ([b495edb](https://github.com/andrehrferreira/cmmv-express/commit/b495edb6ecfb75000484e654afb8f8de4397d74c))
+
+
+
 ## [0.6.16](https://github.com/andrehrferreira/cmmv-express/compare/v0.6.15...v0.6.16) (2024-12-10)
 
 
