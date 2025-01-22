@@ -1,3 +1,12 @@
+## [0.6.18](https://github.com/andrehrferreira/cmmv-express/compare/v0.6.17...v0.6.18) (2025-01-22)
+
+
+### Bug Fixes
+
+* view engine ([5e996bc](https://github.com/andrehrferreira/cmmv-express/commit/5e996bce53388202b484f6a11cdc3a4ed99b571e))
+
+
+
 ## [0.6.17](https://github.com/andrehrferreira/cmmv-express/compare/v0.6.16...v0.6.17) (2024-12-11)
 
 
