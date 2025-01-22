@@ -24,7 +24,6 @@ import {
     ServiceRegistry,
 } from '@cmmv/core';
 
-import { CMMVRenderer } from '@cmmv/view';
 import { ControllerRegistry } from '@cmmv/http';
 
 export interface ExpressRequest extends express.Request {
@@ -36,14 +35,20 @@ export class ExpressAdapter extends AbstractHttpAdapter<
 > {
     private logger: Logger = new Logger('ExpressAdapter');
     protected readonly openConnections = new Set<Duplex>();
-    protected render: CMMVRenderer = new CMMVRenderer();
 
     constructor(protected instance?: any) {
         super(instance || express());
     }
 
     public async init(application: Application, settings?: IHTTPSettings) {
-        const publicDir = path.join(process.cwd(), 'public');
+        let publicDirs = Config.get<string[]>('server.publicDirs', [
+            'public/views',
+        ]);
+        const renderEngine = Config.get<string>('server.render', 'cmmv');
+
+        if (publicDirs.length > 0)
+            publicDirs = publicDirs.map(dir => path.join(process.cwd(), dir));
+
         this.application = application;
 
         this.instance = this.instance || express();
@@ -54,31 +59,42 @@ export class ExpressAdapter extends AbstractHttpAdapter<
         if (Config.get<boolean>('server.compress.enabled', true))
             this.instance.use(compression({ level: 6 }));
 
-        this.instance.use(
-            express.static(publicDir, {
-                setHeaders: (res, path) => {
-                    if (path.endsWith('.html')) {
-                        res.setHeader('Cache-Control', 'no-cache');
-                    } else {
-                        res.setHeader(
-                            'Cache-Control',
-                            'public, max-age=31536000, immutable',
-                        );
-                    }
-                },
-            }),
-        );
+        if (renderEngine === '@cmmv/view' || renderEngine === 'cmmv') {
+            for (const publicDir of publicDirs) {
+                this.instance.use(
+                    express.static(publicDir, {
+                        setHeaders: (res, path) => {
+                            if (path.endsWith('.html')) {
+                                res.setHeader('Cache-Control', 'no-cache');
+                            } else {
+                                res.setHeader(
+                                    'Cache-Control',
+                                    'public, max-age=31536000, immutable',
+                                );
+                            }
+                        },
+                    }),
+                );
+            }
 
-        this.instance.set('views', publicDir);
-        this.instance.set('view engine', 'html');
-        this.instance.engine('html', (filePath, options, callback) => {
-            this.render.renderFile(
-                filePath,
-                options,
-                { nonce: options.nonce || '' },
-                callback,
-            );
-        });
+            const { CMMVRenderer } = await import('@cmmv/view');
+            const render = new CMMVRenderer();
+
+            this.instance.set('views', publicDirs);
+            this.instance.set('view engine', 'html');
+            this.instance.engine('html', (filePath, options, callback) => {
+                render.renderFile(
+                    filePath,
+                    options,
+                    { nonce: options.nonce || '' },
+                    callback,
+                );
+            });
+        } else if (renderEngine) {
+            this.instance.set('views', publicDirs);
+            this.instance.set('view engine', renderEngine);
+        }
+
         this.instance.use(express.json());
         this.instance.use(bodyParser.json({ limit: '50mb' }));
         this.instance.use(
