@@ -1,3 +1,12 @@
+## [0.6.19](https://github.com/cmmvio/cmmv-express/compare/v0.6.18...v0.6.19) (2025-01-24)
+
+
+### Bug Fixes
+
+* repository ([7991c37](https://github.com/cmmvio/cmmv-express/commit/7991c37683cf62e715b6a890f9ff05b00b2934bc))
+
+
+
 ## [0.6.18](https://github.com/andrehrferreira/cmmv-express/compare/v0.6.17...v0.6.18) (2025-01-22)
 
 
