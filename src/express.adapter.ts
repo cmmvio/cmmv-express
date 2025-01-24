@@ -33,7 +33,6 @@ export interface ExpressRequest extends express.Request {
 export class ExpressAdapter extends AbstractHttpAdapter<
     http.Server | https.Server
 > {
-    private logger: Logger = new Logger('ExpressAdapter');
     protected readonly openConnections = new Set<Duplex>();
 
     constructor(protected instance?: any) {
@@ -44,6 +43,7 @@ export class ExpressAdapter extends AbstractHttpAdapter<
         let publicDirs = Config.get<string[]>('server.publicDirs', [
             'public/views',
         ]);
+
         const renderEngine = Config.get<string>('server.render', 'cmmv');
 
         if (publicDirs.length > 0)

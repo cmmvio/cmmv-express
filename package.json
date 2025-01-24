@@ -31,10 +31,10 @@
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/andrehrferreira/cmmv-express.git"
+        "url": "git+https://github.com/cmmvio/cmmv-express.git"
     },
     "bugs": {
-        "url": "https://github.com/andrehrferreira/cmmv-express/issues"
+        "url": "https://github.com/cmmvio/cmmv-express/issues"
     },
     "homepage": "https://cmmv.io",
     "engines": {
