@@ -9,8 +9,8 @@ const enquirer = require('enquirer');
 const { prompt } = enquirer;
 
 async function main() {
-    const chalk = (await import('chalk')).default; // Importação dinâmica para ESM
-    const { execa } = await import('execa'); // Importação dinâmica para ESM
+    const chalk = (await import('chalk')).default; 
+    const { execa } = await import('execa'); 
 
     const currentVersion = JSON.parse(fs.readFileSync(path.resolve(cwd(), 'package.json'), 'utf-8')).version;
     const versionIncrements = ['patch', 'minor', 'major'];
@@ -30,7 +30,6 @@ async function main() {
     let targetVersion;
 
     try {
-        // Prompt release type
         const { release } = await prompt({
             type: 'select',
             name: 'release',
@@ -54,7 +53,6 @@ async function main() {
             throw new Error(`Invalid target version: ${targetVersion}`);
         }
 
-        // Confirm release
         const { yes: tagOk } = await prompt({
             type: 'confirm',
             name: 'yes',
@@ -66,11 +64,9 @@ async function main() {
             return;
         }
 
-        // Update the package version
         step('\nUpdating the package version...');
         updatePackage(targetVersion);
 
-        // Generate the changelog
         step('\nGenerating the changelog...');
         await run('pnpm', ['run', 'changelog']);
 
@@ -85,17 +81,14 @@ async function main() {
             return;
         }
 
-        // Commit changes and create a Git tag
         step('\nCommitting changes...');
         await run('git', ['add', 'CHANGELOG.md', 'package.json']);
         await run('git', ['commit', '-m', `release: v${targetVersion}`]);
         await run('git', ['tag', `v${targetVersion}`]);
 
-        // Publish the package
         step('\nPublishing the package...');
         await run('pnpm', ['publish', '--access', 'public']);
 
-        // Push changes to GitHub
         step('\nPushing to GitHub...');
         await run('git', ['push', 'origin', `refs/tags/v${targetVersion}`]);
         await run('git', ['push']);
