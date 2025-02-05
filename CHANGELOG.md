@@ -1,3 +1,7 @@
+## [0.8.9](https://github.com/cmmvio/cmmv-express/compare/v0.6.20...v0.8.9) (2025-02-05)
+
+
+
 ## [0.6.20](https://github.com/cmmvio/cmmv-express/compare/v0.6.19...v0.6.20) (2025-01-24)
 
 
