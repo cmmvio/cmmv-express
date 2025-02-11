@@ -1,3 +1,13 @@
+## [0.8.10](https://github.com/cmmvio/cmmv-express/compare/v0.8.9...v0.8.10) (2025-02-11)
+
+
+### Bug Fixes
+
+* include ([c1efa69](https://github.com/cmmvio/cmmv-express/commit/c1efa693db02d204e4ddc3845443daf0316c2956))
+* remove express transpiler ([d2c5ac2](https://github.com/cmmvio/cmmv-express/commit/d2c5ac25c5850849955d5f2a14bad80097c8be40))
+
+
+
 ## [0.8.9](https://github.com/cmmvio/cmmv-express/compare/v0.6.20...v0.8.9) (2025-02-05)
 
 
