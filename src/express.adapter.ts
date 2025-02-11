@@ -104,7 +104,14 @@ export class ExpressAdapter extends AbstractHttpAdapter<
             }),
         );
 
-        if (Config.get<boolean>('server.cors', true)) this.instance.use(cors());
+        if (Config.get<boolean>('server.cors', true)) {
+            this.instance.use(
+                cors({
+                    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+                    allowedHeaders: ['Content-Type', 'Authorization'],
+                }),
+            );
+        }
 
         if (Config.get<boolean>('server.helmet.enabled', true)) {
             this.instance.use(

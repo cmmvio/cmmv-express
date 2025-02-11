@@ -30,15 +30,14 @@ The `@cmmv/express` module provides an alternative HTTP adapter based on [Expres
 
 ```typescript
 import { Application } from "@cmmv/core";
-import { ExpressAdapter, ExpressModule } from "@cmmv/express";
+import { DefaultHTTPModule } from "@cmmv/http";
+import { ExpressAdapter } from "@cmmv/express";
 import { ViewModule } from "@cmmv/view";
 
 Application.create({
     httpAdapter: ExpressAdapter, // Add the ExpressAdapter here
     wsAdapter: WSAdapter,
-    modules: [
-        ExpressModule, // Add the ExpressModule here
-    ],
+    modules: [DefaultHTTPModule],
     services: [...],
     contracts: [...]
 });
